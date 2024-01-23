@@ -4,6 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:google_nav_bar/google_nav_bar.dart";
 import 'package:carousel_slider/carousel_slider.dart';
+<<<<<<< HEAD
+=======
+import 'package:store/products.dart';
+>>>>>>> 4af878b (yea)
 
 void main() {
   runApp(
@@ -88,6 +92,11 @@ late Size thisSize;
 
 int suggestionIndex = 0;
 
+<<<<<<< HEAD
+=======
+CarouselController suggestionsController = CarouselController();
+
+>>>>>>> 4af878b (yea)
 class _home_pageState extends State<home_page> {
   @override
   Widget build(BuildContext context) {
@@ -161,6 +170,7 @@ class _home_pageState extends State<home_page> {
                     const SizedBox(height: 10),
                     SizedBox(
                       height: thisSize.height * 0.5,
+<<<<<<< HEAD
                       child: CarouselSlider(
                         items: [
                           Container(
@@ -192,6 +202,19 @@ class _home_pageState extends State<home_page> {
                           )
                         ],
                         options: CarouselOptions(
+=======
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                  builder: (context) => showRout()));
+                        },
+                        child: CarouselSlider(
+                          carouselController: suggestionsController,
+                          items: makeSlideshow(5),
+                          options: CarouselOptions(
+>>>>>>> 4af878b (yea)
                             scrollDirection: Axis.horizontal,
                             height: 500,
                             autoPlay: true,
@@ -199,29 +222,43 @@ class _home_pageState extends State<home_page> {
                               setState(() {
                                 suggestionIndex = newIndex;
                               });
+<<<<<<< HEAD
                             }),
+=======
+                            },
+                          ),
+                        ),
+>>>>>>> 4af878b (yea)
                       ),
                     ),
                     Align(
                       alignment: Alignment.center,
                       child: Column(
                         children: [
+<<<<<<< HEAD
                           Text(
                               (suggestionIndex == 0)
                                   ? "SM S21+"
                                   : (suggestionIndex == 1)
                                       ? "Mazda RX-7"
                                       : "NIK Air Force",
+=======
+                          Text(productsList[suggestionIndex].proName,
+>>>>>>> 4af878b (yea)
                               style: ts(Colors.black, 30, true)),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+<<<<<<< HEAD
                               Text(
                                   (suggestionIndex == 0)
                                       ? "999"
                                       : (suggestionIndex == 1)
                                           ? "250 000"
                                           : "500",
+=======
+                              Text(productsList[suggestionIndex].proPrice,
+>>>>>>> 4af878b (yea)
                                   style: ts(Colors.black87, 20, true)),
                               const SizedBox(width: 5),
                               const Text("USD",
@@ -234,6 +271,7 @@ class _home_pageState extends State<home_page> {
                     Container(
                         margin: const EdgeInsets.only(left: 20),
                         child: Text("news", style: ts(Colors.black, 35, true))),
+<<<<<<< HEAD
                     Column(
                       children: [
                         Row(
@@ -256,6 +294,28 @@ class _home_pageState extends State<home_page> {
 
                       ]
                     ),
+=======
+                    Column(children: [
+                      Row(
+                        children: [
+                          makeNews(thisSize, 6),
+                          makeNews(thisSize, 5),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          makeNews(thisSize, 4),
+                          makeNews(thisSize, 3),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          makeNews(thisSize, 2),
+                          makeNews(thisSize, 1),
+                        ],
+                      ),
+                    ]),
+>>>>>>> 4af878b (yea)
                     SizedBox(height: 500),
                   ]),
             ),
@@ -323,7 +383,11 @@ TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
       fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
 }
 
+<<<<<<< HEAD
 Widget makeNews(Size thisSize, String assetPlace, String bottomText) {
+=======
+Widget makeNews(Size thisSize, int whichProduct) {
+>>>>>>> 4af878b (yea)
   return Container(
     height: thisSize.height * 0.3,
     width: thisSize.width * 0.4,
@@ -343,13 +407,57 @@ Widget makeNews(Size thisSize, String assetPlace, String bottomText) {
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
+<<<<<<< HEAD
             child: Image(image: AssetImage(assetPlace),fit: BoxFit.fitHeight,),
           ),
         ),
         const Spacer(),
         Text(bottomText, style: ts(Colors.white, 20, true)),
+=======
+            child: Image(
+              image: NetworkImage(productsList[whichProduct].proPic),
+              fit: BoxFit.fitHeight,
+            ),
+          ),
+        ),
+        const Spacer(),
+        Text(productsList[whichProduct].proName,
+            style: ts(Colors.white, 20, true)),
+>>>>>>> 4af878b (yea)
         const Spacer(),
       ],
     ),
   );
 }
+<<<<<<< HEAD
+=======
+
+class showRout extends StatelessWidget {
+  const showRout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: Text("data"),
+    );
+  }
+}
+
+List<Widget> makeSlideshow(int number) {
+  List<Widget> temp = [];
+
+  for (int i = 0; i < number; i++) {
+    temp.add(Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: Colors.deepPurple,
+          image: DecorationImage(
+              image: NetworkImage(productsList[i].proPic), fit: BoxFit.cover)),
+    ));
+  }
+
+  return temp;
+}
+>>>>>>> 4af878b (yea)
