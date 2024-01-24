@@ -1,13 +1,11 @@
 import 'dart:html';
+import 'dart:js';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:google_nav_bar/google_nav_bar.dart";
 import 'package:carousel_slider/carousel_slider.dart';
-<<<<<<< HEAD
-=======
 import 'package:store/products.dart';
->>>>>>> 4af878b (yea)
 
 void main() {
   runApp(
@@ -31,9 +29,9 @@ class _main_pageState extends State<main_page> {
       body: Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          (_currentIndex == 0)
+          (_currentPageIndex == 0)
               ? home_page()
-              : (_currentIndex == 1)
+              : (_currentPageIndex == 1)
                   ? explore_page()
                   : profile_page(),
           Spacer(),
@@ -65,7 +63,7 @@ class _main_pageState extends State<main_page> {
                 ],
                 onTabChange: (index) {
                   setState(() {
-                    _currentIndex = index;
+                    _currentPageIndex = index;
                   });
                 },
                 selectedIndex: 0,
@@ -78,7 +76,7 @@ class _main_pageState extends State<main_page> {
   }
 }
 
-int _currentIndex = 0;
+int _currentPageIndex = 0;
 
 // home page
 class home_page extends StatefulWidget {
@@ -92,11 +90,8 @@ late Size thisSize;
 
 int suggestionIndex = 0;
 
-<<<<<<< HEAD
-=======
-CarouselController suggestionsController = CarouselController();
+int proInfoIndex = 0;
 
->>>>>>> 4af878b (yea)
 class _home_pageState extends State<home_page> {
   @override
   Widget build(BuildContext context) {
@@ -108,7 +103,6 @@ class _home_pageState extends State<home_page> {
           child: SingleChildScrollView(
             child: Container(
               margin: const EdgeInsets.only(top: 30),
-              //width: thisSize.width - 40,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -158,7 +152,7 @@ class _home_pageState extends State<home_page> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20)),
+                              borderRadius: BorderRadius.circular(10)),
                         ),
                       ),
                     ),
@@ -170,51 +164,9 @@ class _home_pageState extends State<home_page> {
                     const SizedBox(height: 10),
                     SizedBox(
                       height: thisSize.height * 0.5,
-<<<<<<< HEAD
                       child: CarouselSlider(
-                        items: [
-                          Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 10),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: Colors.deepPurple,
-                                image: const DecorationImage(
-                                    image:
-                                        AssetImage("assets/images/phone.webp"),
-                                    fit: BoxFit.fill)),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 10),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                image: const DecorationImage(
-                                    image:
-                                        AssetImage("assets/images/mazda.webp"),
-                                    fit: BoxFit.fill)),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 10),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                image: const DecorationImage(
-                                    image: AssetImage("assets/images/shoe.png"),
-                                    fit: BoxFit.fill)),
-                          )
-                        ],
+                        items: makeSlideShow(context, 5),
                         options: CarouselOptions(
-=======
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              CupertinoPageRoute(
-                                  builder: (context) => showRout()));
-                        },
-                        child: CarouselSlider(
-                          carouselController: suggestionsController,
-                          items: makeSlideshow(5),
-                          options: CarouselOptions(
->>>>>>> 4af878b (yea)
                             scrollDirection: Axis.horizontal,
                             height: 500,
                             autoPlay: true,
@@ -222,43 +174,19 @@ class _home_pageState extends State<home_page> {
                               setState(() {
                                 suggestionIndex = newIndex;
                               });
-<<<<<<< HEAD
                             }),
-=======
-                            },
-                          ),
-                        ),
->>>>>>> 4af878b (yea)
                       ),
                     ),
                     Align(
                       alignment: Alignment.center,
                       child: Column(
                         children: [
-<<<<<<< HEAD
-                          Text(
-                              (suggestionIndex == 0)
-                                  ? "SM S21+"
-                                  : (suggestionIndex == 1)
-                                      ? "Mazda RX-7"
-                                      : "NIK Air Force",
-=======
                           Text(productsList[suggestionIndex].proName,
->>>>>>> 4af878b (yea)
                               style: ts(Colors.black, 30, true)),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-<<<<<<< HEAD
-                              Text(
-                                  (suggestionIndex == 0)
-                                      ? "999"
-                                      : (suggestionIndex == 1)
-                                          ? "250 000"
-                                          : "500",
-=======
                               Text(productsList[suggestionIndex].proPrice,
->>>>>>> 4af878b (yea)
                                   style: ts(Colors.black87, 20, true)),
                               const SizedBox(width: 5),
                               const Text("USD",
@@ -271,51 +199,26 @@ class _home_pageState extends State<home_page> {
                     Container(
                         margin: const EdgeInsets.only(left: 20),
                         child: Text("news", style: ts(Colors.black, 35, true))),
-<<<<<<< HEAD
-                    Column(
-                      children: [
-                        Row(
-                          children: [
-                            makeNews(thisSize, "assets/images/benz.webp", " MB S400"),
-                            makeNews(thisSize, "assets/images/europ.jpg", "Europe"),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            makeNews(thisSize, "assets/images/harmenkardon.jpg", "Harmen Kardon"),
-                            makeNews(thisSize, "assets/images/rtx.jpg", "RTX 3090 on"),
-                          ],
-                        ),  Row(
-                          children: [
-                            makeNews(thisSize, "assets/images/mazda.webp", "Mazda RX-7"),
-                            makeNews(thisSize, "assets/images/phone.webp", "Galaxy S21+"),
-                          ],
-                        ),
-
-                      ]
-                    ),
-=======
                     Column(children: [
                       Row(
                         children: [
-                          makeNews(thisSize, 6),
-                          makeNews(thisSize, 5),
+                          makeNews(context, 1),
+                          makeNews(context, 2),
                         ],
                       ),
                       Row(
                         children: [
-                          makeNews(thisSize, 4),
-                          makeNews(thisSize, 3),
+                          makeNews(context, 3),
+                          makeNews(context, 4),
                         ],
                       ),
                       Row(
                         children: [
-                          makeNews(thisSize, 2),
-                          makeNews(thisSize, 1),
+                          makeNews(context, 5),
+                          makeNews(context, 6),
                         ],
                       ),
                     ]),
->>>>>>> 4af878b (yea)
                     SizedBox(height: 500),
                   ]),
             ),
@@ -383,11 +286,7 @@ TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
       fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
 }
 
-<<<<<<< HEAD
-Widget makeNews(Size thisSize, String assetPlace, String bottomText) {
-=======
-Widget makeNews(Size thisSize, int whichProduct) {
->>>>>>> 4af878b (yea)
+Widget makeNews(context, int whichProduct) {
   return Container(
     height: thisSize.height * 0.3,
     width: thisSize.width * 0.4,
@@ -397,67 +296,163 @@ Widget makeNews(Size thisSize, int whichProduct) {
         top: 20),
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20), color: Colors.blueGrey),
-    child: Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
-          height: (thisSize.height * 0.3) - 50,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-<<<<<<< HEAD
-            child: Image(image: AssetImage(assetPlace),fit: BoxFit.fitHeight,),
-          ),
-        ),
-        const Spacer(),
-        Text(bottomText, style: ts(Colors.white, 20, true)),
-=======
-            child: Image(
-              image: NetworkImage(productsList[whichProduct].proPic),
-              fit: BoxFit.fitHeight,
+    child: InkWell(
+      borderRadius: BorderRadius.circular(20),
+      onTap: () {
+        proInfoIndex = whichProduct;
+        Navigator.push(
+            context,
+            CupertinoDialogRoute(
+                builder: (context) => productInfo_page(), context: context));
+      },
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
+            height: (thisSize.height * 0.3) - 50,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image(
+                image: NetworkImage(productsList[whichProduct].proPic),
+                fit: BoxFit.fitHeight,
+              ),
             ),
           ),
-        ),
-        const Spacer(),
-        Text(productsList[whichProduct].proName,
-            style: ts(Colors.white, 20, true)),
->>>>>>> 4af878b (yea)
-        const Spacer(),
-      ],
+          const Spacer(),
+          Text(productsList[whichProduct].proName,
+              style: ts(Colors.white, 20, true)),
+          const Spacer(),
+        ],
+      ),
     ),
   );
 }
-<<<<<<< HEAD
-=======
 
-class showRout extends StatelessWidget {
-  const showRout({super.key});
+List<Widget> makeSlideShow(context, int num) {
+  //
+  List<Widget> tempList = [];
+  //
+  for (int i = 0; i < num; i++) {
+    tempList.add(
+      Container(
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            color: Colors.deepPurple,
+            image: DecorationImage(
+                image: NetworkImage(productsList[i].proPic),
+                fit: BoxFit.cover)),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(30),
+          onTap: () {
+            proInfoIndex = i;
+            Navigator.push(
+              context,
+              CupertinoDialogRoute(
+                  builder: (context) => const productInfo_page(),
+                  context: context),
+            );
+          },
+        ),
+      ),
+    );
+  }
+  //
+  return tempList;
+}
+
+class productInfo_page extends StatelessWidget {
+  const productInfo_page({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Text("data"),
+      appBar: AppBar(title: Text(productsList[proInfoIndex].proName)),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: thisSize.width,
+              height: thisSize.width,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: NetworkImage(productsList[proInfoIndex].proPic),
+                    fit: BoxFit.cover),
+              ),
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: const BoxDecoration(boxShadow: [
+                      BoxShadow(
+                          spreadRadius: 0,
+                          blurRadius: 0,
+                          color: Color(0xB3000000)),
+                    ]),
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      width: thisSize.width / 2,
+                      height: thisSize.width * 0.7,
+                      decoration: BoxDecoration(
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.white60,
+                              blurRadius: 30,
+                              spreadRadius: 1,
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                  productsList[proInfoIndex].proPic),
+                              fit: BoxFit.cover)),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+                margin: const EdgeInsets.all(20),
+                alignment: Alignment.topLeft,
+                child: Text(
+                  productsList[proInfoIndex].proInfo,
+                  style: ts(Colors.black87, 25, false),
+                )),
+            const SizedBox(height: 100),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FilledButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStatePropertyAll<Color>(Colors.deepOrange),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                        )
+                    ),
+
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("add to bag", style: ts(Colors.white, 20, false)),
+                  ),
+                ),
+                const SizedBox(width: 20),
+                Text(productsList[proInfoIndex].proPrice, style: ts(Colors.black87, 20,false)),
+                const SizedBox(width: 5),
+                const Text("USD")
+              ],
+            ),
+            const SizedBox(height: 50)
+          ],
+        ),
+      ),
     );
   }
 }
-
-List<Widget> makeSlideshow(int number) {
-  List<Widget> temp = [];
-
-  for (int i = 0; i < number; i++) {
-    temp.add(Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          color: Colors.deepPurple,
-          image: DecorationImage(
-              image: NetworkImage(productsList[i].proPic), fit: BoxFit.cover)),
-    ));
-  }
-
-  return temp;
-}
->>>>>>> 4af878b (yea)

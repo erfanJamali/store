@@ -9,10 +9,10 @@ class product {
 
 List<product> productsList = [
   product(
-      "Mercedes Benz G63",
-      "300,000",
-      "https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/wp-content/uploads/2018/02/2019-Mercedes-AMG-G63-101.jpg",
-      "mercedes benz G63 is a really nice car!! buy it now!"),
+      "Mercedes Benz G63 MANSORY",
+      "700,000",
+      "https://cdn.bama.ir/uploads/BamaImages/News/56df365c-a712-40c8-a951-d8484f398361/article_637972148074248541_thumb_960_542.jpg",
+      "همچون اکثر محصولات منصوری، بخش فنی مرسدس AMG G63 منصوری هم از قلم نیفتاده چراکه تیونر آلمانی با تقویت پیشرانه 4 لیتری توئین توربو 8 سیلندر، مجموع خروجی را به 850 اسب‌بخار قدرت و هزار نیوتن‌متر گشتاور رسانده است. به لطف این تغییرات، محصول جدید منصوری می‌تواند ظرف 4 و نیم ثانیه به سرعت صد کیلومتر برساعت برسد.Shahrivar 29, 1402 AP"),
   product(
       "Nike maxoptic",
       "135.97",
@@ -30,7 +30,7 @@ List<product> productsList = [
       "new GTA"),
   product(
       "harmen kardon",
-      "100",
+      "2,000",
       "https://dkstatics-public.digikala.com/digikala-products/1786550521c4a8862cb928d2c2a76d7e107d22cf_1691247371.jpg",
       "Viera keyboard!"),
   product(
