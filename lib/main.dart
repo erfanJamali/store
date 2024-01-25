@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import "package:google_nav_bar/google_nav_bar.dart";
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:store/products.dart';
+import 'package:store/pages/explore_page.dart';
+import 'package:store/pages/profile_page.dart';
 
 void main() {
   runApp(
@@ -229,55 +231,10 @@ class _home_pageState extends State<home_page> {
   }
 }
 
-// explore page
-class explore_page extends StatefulWidget {
-  const explore_page({super.key});
 
-  @override
-  State<explore_page> createState() => _explore_pageState();
-}
 
-class _explore_pageState extends State<explore_page> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: InkWell(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Text("data")),
-    );
-  }
-}
 
-// profile page
-class profile_page extends StatefulWidget {
-  const profile_page({super.key});
 
-  @override
-  State<profile_page> createState() => _profile_pageState();
-}
-
-class _profile_pageState extends State<profile_page> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: [
-            Text(
-              "Profile",
-              style: ts(Colors.black87, 25, true),
-            ),
-            Icon(Icons.person)
-          ],
-        ),
-        shadowColor: Colors.black,
-        elevation: 10,
-      ),
-    );
-  }
-}
 
 TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
   return TextStyle(
