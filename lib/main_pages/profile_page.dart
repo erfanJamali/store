@@ -30,3 +30,11 @@ class _profile_pageState extends State<profile_page> {
     );
   }
 }
+
+
+TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
+  return TextStyle(
+      color: myColor,
+      fontSize: myFontSize,
+      fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
+}
