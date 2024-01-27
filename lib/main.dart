@@ -8,13 +8,12 @@ import 'package:store/static_datas/Products.dart';
 import 'package:store/main_pages/explore_page.dart';
 import 'package:store/main_pages/profile_page.dart';
 
-import 'functions.dart';
 import 'main_pages/home_page.dart';
 
 void main() {
   runApp(
     const MaterialApp(
-      home: main_page(),
+      home: home_page(),
     ),
   );
 }

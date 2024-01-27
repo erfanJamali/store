@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store/static_datas/Products.dart';
+import 'package:store/static_datas/static_values.dart';
 import 'package:store/static_datas/notifications_List.dart';
 
 class notifications_page extends StatefulWidget {
@@ -14,7 +15,7 @@ class _notifications_pageState extends State<notifications_page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Notifications"),
+          title: Text("Notifications", style: ts(pageTitleText[0], pageTitleText[1], pageTitleText[2]),),
         ),
         body: Center(child: thereIsMessageOrNot()));
   }

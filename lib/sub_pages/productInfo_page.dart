@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../main.dart';
 import '../main_pages/home_page.dart';
 import '../static_datas/Products.dart';
+import '../static_datas/static_values.dart';
 
 class ProductInfo_page extends StatelessWidget {
   const ProductInfo_page({super.key});
@@ -10,7 +12,7 @@ class ProductInfo_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(ProductsList[proInfoIndex].proName)),
+      appBar: AppBar(title: Text(ProductsList[proInfoIndex].proName, style: ts(pageTitleText[0], pageTitleText[1], pageTitleText[2]))),
       body: SingleChildScrollView(
         child: Column(
           children: [

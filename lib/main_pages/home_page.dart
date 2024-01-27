@@ -1,10 +1,14 @@
+import 'dart:html';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:store/sub_pages/notifications_page.dart';
+import 'package:store/sub_pages/search_page.dart';
 import '../main.dart';
 import '../static_datas/Products.dart';
 import '../sub_pages/ProductInfo_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:store/functions/textStyle.dart';
 
 // home page
 class home_page extends StatefulWidget {
@@ -45,7 +49,7 @@ class _home_pageState extends State<home_page> {
                               Row(
                                 children: [
                                   Text("Hi, erfan",
-                                      style: ts(Colors.black87, 23, false)),
+                                  style: ts(Colors.black, 12, false)??TextStyle()),
                                   const SizedBox(width: 5),
                                   const Icon(
                                     Icons.waving_hand_rounded,
@@ -75,17 +79,20 @@ class _home_pageState extends State<home_page> {
                     const SizedBox(height: 10),
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 20),
-                      child: TextField(
-                        style: ts(Colors.black, 20, false),
-                        cursorColor: CupertinoColors.activeOrange,
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.search_rounded),
-                          hintText: "search",
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                      child: InkWell(
+                        onTap: (){
+                          Navigator.push(context, CupertinoDialogRoute(builder: (Context) => const search_page(), context: context));
+                        },
+                        child: TextField(
+                          enabled: false,
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.search_rounded),
+                            hintText: "search",
+                            hintStyle: ts(Colors.black54, 21, false),
+                            disabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                           ),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)),
                         ),
                       ),
                     ),
