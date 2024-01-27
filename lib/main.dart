@@ -5,9 +5,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:google_nav_bar/google_nav_bar.dart";
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:store/products.dart';
+import 'package:store/static_datas/products.dart';
 import 'package:store/pages/explore_page.dart';
 import 'package:store/pages/profile_page.dart';
+
+import 'functions.dart';
 
 void main() {
   runApp(
@@ -221,7 +223,7 @@ class _home_pageState extends State<home_page> {
                         ],
                       ),
                     ]),
-                    SizedBox(height: 500),
+                    const SizedBox(height: 500),
                   ]),
             ),
           ),
@@ -229,18 +231,6 @@ class _home_pageState extends State<home_page> {
       ),
     );
   }
-}
-
-
-
-
-
-
-TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
-  return TextStyle(
-      color: myColor,
-      fontSize: myFontSize,
-      fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
 }
 
 Widget makeNews(context, int whichProduct) {
