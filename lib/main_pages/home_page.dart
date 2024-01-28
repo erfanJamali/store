@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:store/sub_pages/notifications_page.dart';
 import 'package:store/sub_pages/search_page.dart';
+import '../functions/productCard.dart';
 import '../main.dart';
 import '../static_datas/Products.dart';
 import '../sub_pages/ProductInfo_page.dart';
@@ -140,22 +141,25 @@ class _home_pageState extends State<home_page> {
                         margin: const EdgeInsets.only(left: 20),
                         child: Text("news", style: ts(Colors.black, 35, true))),
                     Column(children: [
+                      const SizedBox(height: 20),
                       Row(
                         children: [
-                          makeNews(context, 1),
-                          makeNews(context, 2),
+                          productCard(context, 1, 0),
+                          productCard(context, 2, 0),
                         ],
                       ),
+                      const SizedBox(height: 20),
                       Row(
                         children: [
-                          makeNews(context, 3),
-                          makeNews(context, 4),
+                          productCard(context, 3, 0),
+                          productCard(context, 4, 0),
                         ],
                       ),
+                      const SizedBox(height: 20),
                       Row(
                         children: [
-                          makeNews(context, 5),
-                          makeNews(context, 6),
+                          productCard(context, 5, 0),
+                          productCard(context, 6, 0),
                         ],
                       ),
                     ]),
@@ -169,50 +173,6 @@ class _home_pageState extends State<home_page> {
   }
 }
 
-Widget makeNews(context, int whichProduct) {
-  return Container(
-    height: thisSize.height * 0.3,
-    width: thisSize.width * 0.4,
-    margin: EdgeInsets.only(
-        left: (thisSize.width * 0.1) / 2,
-        right: (thisSize.width * 0.1) / 2,
-        top: 20),
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20), color: Colors.blueGrey),
-    child: InkWell(
-      borderRadius: BorderRadius.circular(20),
-      onTap: () {
-        proInfoIndex = whichProduct;
-        Navigator.push(
-            context,
-            CupertinoDialogRoute(
-                builder: (context) => ProductInfo_page(), context: context));
-      },
-      child: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
-            height: (thisSize.height * 0.3) - 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image(
-                image: NetworkImage(ProductsList[whichProduct].proPic),
-                fit: BoxFit.fitHeight,
-              ),
-            ),
-          ),
-          const Spacer(),
-          Text(ProductsList[whichProduct].proName,
-              style: ts(Colors.white, 20, true)),
-          const Spacer(),
-        ],
-      ),
-    ),
-  );
-}
 
 List<Widget> makeSlideShow(context, int num) {
   //
