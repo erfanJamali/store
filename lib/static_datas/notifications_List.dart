@@ -2,7 +2,7 @@
 class Notification{
 
   String message;
-  String removable;
+  bool removable;
 
   Notification(this.message, this.removable);
 

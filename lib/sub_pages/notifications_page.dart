@@ -52,3 +52,7 @@ TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
       fontSize: myFontSize,
       fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
 }
+
+void main(){
+  print("hi");
+}

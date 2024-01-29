@@ -1,5 +1,5 @@
-import 'dart:html';
-import 'dart:js';
+//import 'dart:html';
+//import 'dart:js';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +7,7 @@ import "package:google_nav_bar/google_nav_bar.dart";
 import 'package:store/static_datas/Products.dart';
 import 'package:store/main_pages/explore_page.dart';
 import 'package:store/main_pages/profile_page.dart';
+import 'package:store/sub_pages/search_page.dart';
 
 import 'main_pages/home_page.dart';
 
