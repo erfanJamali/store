@@ -1,4 +1,5 @@
-import 'dart:ui';
+//import 'dart:ui';
+import 'package:flutter/material.dart';
 
 TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
   return TextStyle(

@@ -13,7 +13,7 @@ import 'main_pages/home_page.dart';
 void main() {
   runApp(
     const MaterialApp(
-      home: home_page(),
+      home: main_page(),
     ),
   );
 }
@@ -25,21 +25,25 @@ class main_page extends StatefulWidget {
   State<main_page> createState() => _main_pageState();
 }
 
+int currentPageIndex = 0;
+
+
 class _main_pageState extends State<main_page> {
   @override
   Widget build(BuildContext context) {
     //
-    int currentPageIndex = 0;
     //
     return Scaffold(
       body: Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          (currentPageIndex == 0)
-              ? const home_page()
-              : (currentPageIndex == 1)
-                  ? const explore_page()
-                  : const profile_page(),
+          if (currentPageIndex == 0) ...{
+            const home_page()
+          } else if (currentPageIndex == 1) ...{
+            const explore_page()
+          } else ...{
+            const profile_page()
+          },
           const Spacer(),
           Container(
             decoration: BoxDecoration(
@@ -70,6 +74,7 @@ class _main_pageState extends State<main_page> {
                 onTabChange: (index) {
                   setState(() {
                     currentPageIndex = index;
+                    print(currentPageIndex);
                   });
                 },
                 selectedIndex: 0,

@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+//import 'package:store/static_datas/notifications_List.dart';
 
 import '../main.dart';
 import '../main_pages/home_page.dart';
 import '../static_datas/Products.dart';
 import '../static_datas/static_values.dart';
+import '../static_datas/notifications_List.dart';
 
 class ProductInfo_page extends StatelessWidget {
   const ProductInfo_page({super.key});
@@ -69,7 +71,14 @@ class ProductInfo_page extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 FilledButton(
-                  onPressed: () {},
+                  onPressed: () {
+
+                   // Notification notif = new Notification("message", "removable");
+
+                    //notificationsList.add()
+
+
+                  },
                   style: ButtonStyle(
                     backgroundColor:
                     MaterialStatePropertyAll<Color>(Colors.deepOrange),

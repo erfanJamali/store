@@ -6,7 +6,6 @@ import 'package:store/functions/productCard.dart';
 import 'package:store/main_pages/home_page.dart';
 import 'package:store/static_datas/static_values.dart';
 import 'package:store/static_datas/Products.dart';
-import 'package:search_app_bar_page/search_app_bar_page.dart';
 
 
 class search_page extends StatefulWidget {
