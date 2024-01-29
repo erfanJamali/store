@@ -15,7 +15,10 @@ class _notifications_pageState extends State<notifications_page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Notifications", style: ts(pageTitleText[0], pageTitleText[1], pageTitleText[2]),),
+          title: Text(
+            "Notifications",
+            style: ts(pageTitleText[0], pageTitleText[1], pageTitleText[2]),
+          ),
         ),
         body: Center(child: thereIsMessageOrNot()));
   }
@@ -42,7 +45,11 @@ Widget thereIsMessageOrNot() {
       ],
     );
   } else {
-    return SingleChildScrollView();
+    return SingleChildScrollView(
+      child: Column(
+        children: makeNotif(),
+      ),
+    );
   }
 }
 
@@ -53,6 +60,10 @@ TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
       fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
 }
 
-void main(){
-  print("hi");
+List<Widget> makeNotif() {
+  List<Widget> tempList = [];
+  for (int i = 0; i < notificationsList.length; i++) {
+    tempList.add(Text(notificationsList[i].message));
+  }
+  return tempList;
 }

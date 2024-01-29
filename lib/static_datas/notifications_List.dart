@@ -1,11 +1,11 @@
 
-class Notification{
+class NotificationConst{
 
   String message;
   bool removable;
 
-  Notification(this.message, this.removable);
+  NotificationConst(this.message, this.removable);
 
 }
 
-List<Notification> notificationsList = [];
+List<NotificationConst> notificationsList = [];

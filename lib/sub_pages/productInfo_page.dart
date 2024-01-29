@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:store/functions/submit_notification.dart';
 import 'package:store/static_datas/accounts_list.dart';
-//import 'package:store/static_datas/notifications_List.dart';
-import 'package:store/static_datas/notifications_List.dart';
+import 'package:store/sub_pages/notifications_page.dart';
 
-import '../main.dart';
 import '../main_pages/home_page.dart';
 import '../static_datas/Products.dart';
 import '../static_datas/static_values.dart';
@@ -75,8 +73,7 @@ class ProductInfo_page extends StatelessWidget {
                 FilledButton(
                   onPressed: () {
                     if(!isSigned) {
-                      notificationsList.add(Notification("message", false));
-
+                      submitNotif(context,"notif", false, true);
                     }
                   },
                   style: ButtonStyle(
