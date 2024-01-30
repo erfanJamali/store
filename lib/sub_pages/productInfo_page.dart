@@ -75,7 +75,7 @@ class ProductInfo_page extends StatelessWidget {
                   onPressed: () {
                     if(!isSigned) {
                       String message = "you have to SignUp First";
-                      submitNotif(message, false);
+                      submitNotif(message, false,1);
                       makeSnackBar(context, message, "SignUp");
                     }
                   },

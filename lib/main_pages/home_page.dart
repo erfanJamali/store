@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:store/functions/submit_notification.dart';
 import 'package:store/sub_pages/notifications_page.dart';
 import 'package:store/sub_pages/search_page.dart';
 import '../widgets/productCard.dart';
@@ -191,6 +192,9 @@ List<Widget> makeSlideShow(context, int num) {
         child: InkWell(
           borderRadius: BorderRadius.circular(30),
           onTap: () {
+            submitNotif("notif", true,0);
+            submitNotif("notif54", true,0);
+            submitNotif("notif", true,0);
             proInfoIndex = i;
             Navigator.push(
               context,

@@ -3,8 +3,9 @@ class NotificationConst{
 
   String message;
   bool removable;
+  int fun;
 
-  NotificationConst(this.message, this.removable);
+  NotificationConst(this.message, this.removable, this.fun);
 
 }
 

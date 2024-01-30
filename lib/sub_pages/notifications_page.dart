@@ -1,7 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:store/static_datas/Products.dart';
 import 'package:store/static_datas/static_values.dart';
 import 'package:store/static_datas/notifications_List.dart';
+import 'package:store/widgets/notif_card.dart';
 
 class notifications_page extends StatefulWidget {
   const notifications_page({super.key});
@@ -20,11 +22,11 @@ class _notifications_pageState extends State<notifications_page> {
             style: ts(pageTitleText[0], pageTitleText[1], pageTitleText[2]),
           ),
         ),
-        body: Center(child: thereIsMessageOrNot()));
+        body: Center(child: thereIsMessageOrNot(context)));
   }
 }
 
-Widget thereIsMessageOrNot() {
+Widget thereIsMessageOrNot(context) {
   if (notificationsList.isEmpty) {
     return Column(
       children: [
@@ -47,7 +49,7 @@ Widget thereIsMessageOrNot() {
   } else {
     return SingleChildScrollView(
       child: Column(
-        children: makeNotif(),
+        children: notifCard(context),
       ),
     );
   }
@@ -58,12 +60,4 @@ TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
       color: myColor,
       fontSize: myFontSize,
       fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
-}
-
-List<Widget> makeNotif() {
-  List<Widget> tempList = [];
-  for (int i = 0; i < notificationsList.length; i++) {
-    tempList.add(Text(notificationsList[i].message));
-  }
-  return tempList;
 }
