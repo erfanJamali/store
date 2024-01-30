@@ -26,6 +26,8 @@ class _search_pageState extends State<search_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        shadowColor: Colors.black87,
+        elevation: 10,
         title: Text(
           "Search",
           style: ts(pageTitleText[0], pageTitleText[1], pageTitleText[2]),

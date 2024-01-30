@@ -15,7 +15,11 @@ class ProductInfo_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(ProductsList[proInfoIndex].proName, style: ts(pageTitleText[0], pageTitleText[1], pageTitleText[2]))),
+      appBar: AppBar(
+          shadowColor: Colors.black87,
+          elevation: 10,
+          title: Text(ProductsList[proInfoIndex].proName,
+              style: ts(pageTitleText[0], pageTitleText[1], pageTitleText[2]))),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -73,29 +77,28 @@ class ProductInfo_page extends StatelessWidget {
               children: [
                 FilledButton(
                   onPressed: () {
-                    if(!isSigned) {
+                    if (!isSigned) {
                       String message = "you have to SignUp First";
-                      submitNotif(message, false,1);
+                      submitNotif(message, false, 1);
                       makeSnackBar(context, message, "SignUp");
                     }
                   },
                   style: ButtonStyle(
-                    backgroundColor:
-                    const MaterialStatePropertyAll<Color>(Colors.deepOrange),
+                    backgroundColor: const MaterialStatePropertyAll<Color>(
+                        Colors.deepOrange),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        )
-                    ),
-
+                            borderRadius: BorderRadius.circular(10))),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text("add to bag", style: ts(Colors.white, 20, false)),
+                    child:
+                        Text("add to bag", style: ts(Colors.white, 20, false)),
                   ),
                 ),
                 const SizedBox(width: 20),
-                Text(ProductsList[proInfoIndex].proPrice, style: ts(Colors.black87, 20,false)),
+                Text(ProductsList[proInfoIndex].proPrice,
+                    style: ts(Colors.black87, 20, false)),
                 const SizedBox(width: 5),
                 const Text("USD")
               ],

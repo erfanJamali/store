@@ -6,7 +6,7 @@ import 'package:store/functions/submit_notification.dart';
 import 'package:store/sub_pages/notifications_page.dart';
 import 'package:store/sub_pages/search_page.dart';
 import '../widgets/productCard.dart';
-import '../main.dart';
+import 'main.dart';
 import '../static_datas/Products.dart';
 import '../sub_pages/ProductInfo_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -51,7 +51,8 @@ class _home_pageState extends State<home_page> {
                               Row(
                                 children: [
                                   Text("Hi, erfan",
-                                  style: ts(Colors.black, 12, false)??TextStyle()),
+                                      style: ts(Colors.black, 12, false) ??
+                                          TextStyle()),
                                   const SizedBox(width: 5),
                                   const Icon(
                                     Icons.waving_hand_rounded,
@@ -66,8 +67,13 @@ class _home_pageState extends State<home_page> {
                             ],
                           ),
                           InkWell(
-                            onTap: (){
-                              Navigator.push(context, CupertinoDialogRoute(builder: (context) => const notifications_page(), context: context));
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  CupertinoDialogRoute(
+                                      builder: (context) =>
+                                          const notifications_page(),
+                                      context: context));
                             },
                             child: const Icon(
                               Icons.notification_add_rounded,
@@ -82,8 +88,12 @@ class _home_pageState extends State<home_page> {
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 20),
                       child: InkWell(
-                        onTap: (){
-                          Navigator.push(context, CupertinoDialogRoute(builder: (Context) => const search_page(), context: context));
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              CupertinoDialogRoute(
+                                  builder: (Context) => const search_page(),
+                                  context: context));
                         },
                         child: TextField(
                           enabled: false,
@@ -103,7 +113,6 @@ class _home_pageState extends State<home_page> {
                         margin: const EdgeInsets.only(left: 20),
                         child: Text("suggestions",
                             style: ts(Colors.black, 35, true))),
-                    const SizedBox(height: 10),
                     SizedBox(
                       height: thisSize.height * 0.5,
                       child: CarouselSlider(
@@ -174,7 +183,6 @@ class _home_pageState extends State<home_page> {
   }
 }
 
-
 List<Widget> makeSlideShow(context, int num) {
   //
   List<Widget> tempList = [];
@@ -182,19 +190,25 @@ List<Widget> makeSlideShow(context, int num) {
   for (int i = 0; i < num; i++) {
     tempList.add(
       Container(
-        margin: const EdgeInsets.symmetric(horizontal: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color: Colors.deepPurple,
             image: DecorationImage(
-                image: NetworkImage(ProductsList[i].proPic),
-                fit: BoxFit.cover)),
+                image: NetworkImage(ProductsList[i].proPic), fit: BoxFit.cover),
+            boxShadow: const [
+              BoxShadow(
+                  color: Colors.black45,
+                  blurRadius: 10,
+                  spreadRadius: 3,
+                  offset: Offset(10, 10)),
+            ]),
         child: InkWell(
           borderRadius: BorderRadius.circular(30),
           onTap: () {
-            submitNotif("notif", true,0);
-            submitNotif("notif54", true,0);
-            submitNotif("notif", true,0);
+            submitNotif("notif", true, 0);
+            submitNotif("notif54", true, 0);
+            submitNotif("notif", true, 0);
             proInfoIndex = i;
             Navigator.push(
               context,
