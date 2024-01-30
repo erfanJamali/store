@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:store/sub_pages/notifications_page.dart';
 import 'package:store/sub_pages/search_page.dart';
-import '../functions/productCard.dart';
+import '../widgets/productCard.dart';
 import '../main.dart';
 import '../static_datas/Products.dart';
 import '../sub_pages/ProductInfo_page.dart';

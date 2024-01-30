@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store/functions/make_snack.dart';
 import 'package:store/functions/submit_notification.dart';
 import 'package:store/static_datas/accounts_list.dart';
 import 'package:store/sub_pages/notifications_page.dart';
@@ -73,12 +74,14 @@ class ProductInfo_page extends StatelessWidget {
                 FilledButton(
                   onPressed: () {
                     if(!isSigned) {
-                      submitNotif(context,"notif", false, true);
+                      String message = "you have to SignUp First";
+                      submitNotif(message, false);
+                      makeSnackBar(context, message, "SignUp");
                     }
                   },
                   style: ButtonStyle(
                     backgroundColor:
-                    MaterialStatePropertyAll<Color>(Colors.deepOrange),
+                    const MaterialStatePropertyAll<Color>(Colors.deepOrange),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)

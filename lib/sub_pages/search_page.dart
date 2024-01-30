@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:store/functions/productCard.dart';
+import 'package:store/widgets/productCard.dart';
 import 'package:store/main_pages/home_page.dart';
 import 'package:store/static_datas/static_values.dart';
 import 'package:store/static_datas/Products.dart';
