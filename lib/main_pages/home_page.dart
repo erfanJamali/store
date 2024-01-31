@@ -6,7 +6,6 @@ import 'package:store/functions/submit_notification.dart';
 import 'package:store/sub_pages/notifications_page.dart';
 import 'package:store/sub_pages/search_page.dart';
 import '../widgets/productCard.dart';
-import 'main.dart';
 import '../static_datas/Products.dart';
 import '../sub_pages/ProductInfo_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -51,7 +50,8 @@ class _home_pageState extends State<home_page> {
                               Row(
                                 children: [
                                   Text("Hi, erfan",
-                                      style: ts(Colors.black, 12, false) ??
+                                      style: myTextStyle.ts(
+                                              Colors.black, 12, false) ??
                                           TextStyle()),
                                   const SizedBox(width: 5),
                                   const Icon(
@@ -62,7 +62,7 @@ class _home_pageState extends State<home_page> {
                               ),
                               Text(
                                 "WELCOME BACK",
-                                style: ts(Colors.black, 25, true),
+                                style: myTextStyle.ts(Colors.black, 25, true),
                               )
                             ],
                           ),
@@ -100,7 +100,8 @@ class _home_pageState extends State<home_page> {
                           decoration: InputDecoration(
                             prefixIcon: Icon(Icons.search_rounded),
                             hintText: "search",
-                            hintStyle: ts(Colors.black54, 21, false),
+                            hintStyle:
+                                myTextStyle.ts(Colors.black54, 21, false),
                             disabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -112,7 +113,7 @@ class _home_pageState extends State<home_page> {
                     Container(
                         margin: const EdgeInsets.only(left: 20),
                         child: Text("suggestions",
-                            style: ts(Colors.black, 35, true))),
+                            style: myTextStyle.ts(Colors.black, 35, true))),
                     SizedBox(
                       height: thisSize.height * 0.5,
                       child: CarouselSlider(
@@ -133,12 +134,13 @@ class _home_pageState extends State<home_page> {
                       child: Column(
                         children: [
                           Text(ProductsList[suggestionIndex].proName,
-                              style: ts(Colors.black, 30, true)),
+                              style: myTextStyle.ts(Colors.black, 30, true)),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(ProductsList[suggestionIndex].proPrice,
-                                  style: ts(Colors.black87, 20, true)),
+                                  style:
+                                      myTextStyle.ts(Colors.black87, 20, true)),
                               const SizedBox(width: 5),
                               const Text("USD",
                                   style: TextStyle(color: Colors.black))
@@ -149,7 +151,8 @@ class _home_pageState extends State<home_page> {
                     ),
                     Container(
                         margin: const EdgeInsets.only(left: 20),
-                        child: Text("news", style: ts(Colors.black, 35, true))),
+                        child: Text("news",
+                            style: myTextStyle.ts(Colors.black, 35, true))),
                     Column(children: [
                       const SizedBox(height: 20),
                       Row(
@@ -222,11 +225,4 @@ List<Widget> makeSlideShow(context, int num) {
   }
   //
   return tempList;
-}
-
-TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
-  return TextStyle(
-      color: myColor,
-      fontSize: myFontSize,
-      fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
 }

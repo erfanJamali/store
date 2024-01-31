@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:store/functions/make_snack.dart';
 import 'package:store/functions/submit_notification.dart';
 import 'package:store/static_datas/accounts_list.dart';
-import 'package:store/sub_pages/notifications_page.dart';
+import 'package:store/functions/textStyle.dart';
 
 import '../main_pages/home_page.dart';
 import '../static_datas/Products.dart';
 import '../static_datas/static_values.dart';
-import '../static_datas/notifications_List.dart';
 
 class ProductInfo_page extends StatelessWidget {
   const ProductInfo_page({super.key});
@@ -24,7 +23,8 @@ class ProductInfo_page extends StatelessWidget {
           shadowColor: Colors.black87,
           elevation: 10,
           title: Text(ProductsList[proInfoIndex].proName,
-              style: ts(pageTitleText[0], pageTitleText[1], pageTitleText[2]))),
+              style: myTextStyle.ts(
+                  pageTitleText[0], pageTitleText[1], pageTitleText[2]))),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -74,7 +74,7 @@ class ProductInfo_page extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: Text(
                   ProductsList[proInfoIndex].proInfo,
-                  style: ts(Colors.black87, 25, false),
+                  style: myTextStyle.ts(Colors.black87, 25, false),
                 )),
             const SizedBox(height: 100),
             Row(
@@ -97,13 +97,13 @@ class ProductInfo_page extends StatelessWidget {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child:
-                        Text("add to bag", style: ts(Colors.white, 20, false)),
+                    child: Text("add to bag",
+                        style: myTextStyle.ts(Colors.white, 20, false)),
                   ),
                 ),
                 const SizedBox(width: 20),
                 Text(ProductsList[proInfoIndex].proPrice,
-                    style: ts(Colors.black87, 20, false)),
+                    style: myTextStyle.ts(Colors.black87, 20, false)),
                 const SizedBox(width: 5),
                 const Text("USD")
               ],
@@ -114,11 +114,4 @@ class ProductInfo_page extends StatelessWidget {
       ),
     );
   }
-}
-
-TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
-  return TextStyle(
-      color: myColor,
-      fontSize: myFontSize,
-      fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
 }

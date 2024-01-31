@@ -4,10 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:store/static_datas/static_values.dart';
 import 'package:store/static_datas/notifications_List.dart';
+import 'package:store/functions/textStyle.dart';
 import 'package:store/sub_pages/sign_log_in_page.dart';
-import 'package:store/widgets/notif_card.dart';
-
-import '../main_pages/profile_page.dart';
 
 class notifications_page extends StatefulWidget {
   const notifications_page({super.key});
@@ -30,7 +28,8 @@ class _notifications_pageState extends State<notifications_page> {
         elevation: 10,
         title: Text(
           "Notifications",
-          style: ts(pageTitleText[0], pageTitleText[1], pageTitleText[2]),
+          style: myTextStyle.ts(
+              pageTitleText[0], pageTitleText[1], pageTitleText[2]),
         ),
       ),
       body: Align(
@@ -48,7 +47,7 @@ class _notifications_pageState extends State<notifications_page> {
           const SizedBox(height: 50),
           Text(
             "There is nothing!",
-            style: ts(Colors.deepOrange, 35, true),
+            style: myTextStyle.ts(Colors.deepOrange, 35, true),
           ),
           const Spacer(),
           ClipRRect(
@@ -135,11 +134,4 @@ class _notifications_pageState extends State<notifications_page> {
     //
     return tempList;
   }
-}
-
-TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
-  return TextStyle(
-      color: myColor,
-      fontSize: myFontSize,
-      fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
 }

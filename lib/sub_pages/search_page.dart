@@ -6,6 +6,7 @@ import 'package:store/widgets/productCard.dart';
 import 'package:store/main_pages/home_page.dart';
 import 'package:store/static_datas/static_values.dart';
 import 'package:store/static_datas/Products.dart';
+import 'package:store/functions/textStyle.dart';
 
 class search_page extends StatefulWidget {
   const search_page({super.key});
@@ -26,7 +27,7 @@ class _search_pageState extends State<search_page> {
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
-            onTap: (){
+            onTap: () {
               Navigator.pop(context);
             },
             child: Icon(Icons.arrow_back_ios_new_rounded)),
@@ -34,7 +35,8 @@ class _search_pageState extends State<search_page> {
         elevation: 10,
         title: Text(
           "Search",
-          style: ts(pageTitleText[0], pageTitleText[1], pageTitleText[2]),
+          style: myTextStyle.ts(
+              pageTitleText[0], pageTitleText[1], pageTitleText[2]),
         ),
       ),
       body: SingleChildScrollView(
@@ -46,7 +48,7 @@ class _search_pageState extends State<search_page> {
               child: TextField(
                 controller: controller,
                 cursorColor: CupertinoColors.activeOrange,
-                style: ts(Colors.black54, 21, false),
+                style: myTextStyle.ts(Colors.black54, 21, false),
                 decoration: InputDecoration(
                     hintText: "search between items",
                     focusedBorder: UnderlineInputBorder(
@@ -73,8 +75,9 @@ class _search_pageState extends State<search_page> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text("SUGGESTIONS",
-                              style: ts(Colors.white, 20, false)),
-                          Text("for you", style: ts(Colors.white, 35, true)),
+                              style: myTextStyle.ts(Colors.white, 20, false)),
+                          Text("for you",
+                              style: myTextStyle.ts(Colors.white, 35, true)),
                           const SizedBox(height: 10),
                           Container(
                             height: 30,
@@ -112,11 +115,11 @@ class _search_pageState extends State<search_page> {
                   Container(
                       margin: const EdgeInsets.only(left: 20),
                       child: Text("TOP SALES BY",
-                          style: ts(Colors.black, 45, true))),
+                          style: myTextStyle.ts(Colors.black, 45, true))),
                   Container(
                       margin: const EdgeInsets.only(left: 40),
                       child: Text("Best price",
-                          style: ts(Colors.black87, 35, false))),
+                          style: myTextStyle.ts(Colors.black87, 35, false))),
                   Row(
                     children: [
                       productCard(context, 3, 1),
@@ -129,9 +132,9 @@ class _search_pageState extends State<search_page> {
                       child: Row(
                         children: [
                           Text("Fast post",
-                              style: ts(Colors.black87, 35, false)),
+                              style: myTextStyle.ts(Colors.black87, 35, false)),
                           Text("(working days)",
-                              style: ts(Colors.black87, 20, false)),
+                              style: myTextStyle.ts(Colors.black87, 20, false)),
                         ],
                       )),
                   Row(
@@ -144,7 +147,7 @@ class _search_pageState extends State<search_page> {
                   Container(
                       margin: const EdgeInsets.only(left: 40),
                       child: Text("most bought",
-                          style: ts(Colors.black87, 35, false))),
+                          style: myTextStyle.ts(Colors.black87, 35, false))),
                   Row(
                     children: [
                       productCard(context, 0, 3),
@@ -154,24 +157,16 @@ class _search_pageState extends State<search_page> {
                   const SizedBox(height: 30),
                 ],
               )
-            } else
-              ...{
-                Column(
-                  children: searchResults(context),
-                )
-              }
+            } else ...{
+              Column(
+                children: searchResults(context),
+              )
+            }
           ],
         ),
       ),
     );
   }
-}
-
-TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
-  return TextStyle(
-      color: myColor,
-      fontSize: myFontSize,
-      fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
 }
 
 List<Widget> searchResults(context) {

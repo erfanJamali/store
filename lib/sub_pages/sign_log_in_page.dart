@@ -1,18 +1,11 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:store/main_pages/home_page.dart';
-import 'package:store/static_datas/accounts_list.dart';
 import 'package:store/static_datas/static_values.dart';
 import 'package:store/sub_pages/search_page.dart';
+import 'package:store/functions/textStyle.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 import '../main_pages/main.dart';
-
-
-
 
 class sign_log_in_page extends StatefulWidget {
   const sign_log_in_page({super.key});
@@ -23,7 +16,7 @@ class sign_log_in_page extends StatefulWidget {
 
 String titleText = "SignIn";
 
- bool logIn = true;
+bool logIn = true;
 
 class _sign_log_in_pageState extends State<sign_log_in_page> {
   @override
@@ -32,7 +25,8 @@ class _sign_log_in_pageState extends State<sign_log_in_page> {
       appBar: AppBar(
         title: Text(
           titleText,
-          style: ts(pageTitleText[0], pageTitleText[1], pageTitleText[2]),
+          style: myTextStyle.ts(
+              pageTitleText[0], pageTitleText[1], pageTitleText[2]),
         ),
         leading: InkWell(
           onTap: () {
@@ -54,14 +48,12 @@ class _sign_log_in_pageState extends State<sign_log_in_page> {
     );
   }
 
-
-
   Widget logInPage() {
     titleText = "SignIn";
     return Column(
       children: [
-        Text("Log In", style: ts(Colors.black, 85, true)),
-        Text("or", style: ts(Colors.black54, 20, false)),
+        Text("Log In", style: myTextStyle.ts(Colors.black, 85, true)),
+        Text("or", style: myTextStyle.ts(Colors.black54, 20, false)),
         AnimatedTextKit(
           onTap: () {
             setState(() {
@@ -71,7 +63,7 @@ class _sign_log_in_pageState extends State<sign_log_in_page> {
           animatedTexts: [
             ColorizeAnimatedText(
               "Sign In",
-              textStyle: ts(CupertinoColors.link, 55, false),
+              textStyle: myTextStyle.ts(CupertinoColors.link, 55, false),
               speed: const Duration(milliseconds: 500),
               colors: [
                 CupertinoColors.link,
@@ -123,7 +115,8 @@ class _sign_log_in_pageState extends State<sign_log_in_page> {
           onPressed: () {},
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            child: Text("N E X T", style: ts(Colors.white, 35, true)),
+            child:
+                Text("N E X T", style: myTextStyle.ts(Colors.white, 35, true)),
           ),
         ),
       ],
@@ -134,8 +127,8 @@ class _sign_log_in_pageState extends State<sign_log_in_page> {
     titleText = "logIn";
     return Column(
       children: [
-        Text("Sign In", style: ts(Colors.black, 85, true)),
-        Text("or", style: ts(Colors.black54, 20, false)),
+        Text("Sign In", style: myTextStyle.ts(Colors.black, 85, true)),
+        Text("or", style: myTextStyle.ts(Colors.black54, 20, false)),
         AnimatedTextKit(
           onTap: () {
             setState(() {
@@ -145,7 +138,7 @@ class _sign_log_in_pageState extends State<sign_log_in_page> {
           animatedTexts: [
             ColorizeAnimatedText(
               "Log In",
-              textStyle: ts(CupertinoColors.link, 55, false),
+              textStyle: myTextStyle.ts(CupertinoColors.link, 55, false),
               speed: const Duration(milliseconds: 500),
               colors: [
                 CupertinoColors.link,
@@ -196,17 +189,11 @@ class _sign_log_in_pageState extends State<sign_log_in_page> {
           onPressed: () {},
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            child: Text("N E X T", style: ts(Colors.white, 35, true)),
+            child:
+                Text("N E X T", style: myTextStyle.ts(Colors.white, 35, true)),
           ),
         ),
       ],
     );
   }
-}
-
-TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
-  return TextStyle(
-      color: myColor,
-      fontSize: myFontSize,
-      fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
 }

@@ -4,11 +4,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:google_nav_bar/google_nav_bar.dart";
-import 'package:store/static_datas/Products.dart';
 import 'package:store/main_pages/explore_page.dart';
 import 'package:store/main_pages/profile_page.dart';
 import 'package:store/static_datas/accounts_list.dart';
-import 'package:store/sub_pages/search_page.dart';
 
 import '../sub_pages/sign_log_in_page.dart';
 import 'home_page.dart';
@@ -29,7 +27,6 @@ class main_page extends StatefulWidget {
 }
 
 int currentPageIndex = 0;
-
 
 class _main_pageState extends State<main_page> {
   @override
@@ -77,11 +74,12 @@ class _main_pageState extends State<main_page> {
                 onTabChange: (index) {
                   setState(() {
                     currentPageIndex = index;
-                    if(!isSigned && index == 2){
+                    if (!isSigned && index == 2) {
                       Navigator.push(
                           context,
                           CupertinoDialogRoute(
-                              context: context, builder: (context) => sign_log_in_page()));
+                              context: context,
+                              builder: (context) => sign_log_in_page()));
                     }
                   });
                 },
@@ -93,11 +91,4 @@ class _main_pageState extends State<main_page> {
       ),
     );
   }
-}
-
-TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
-  return TextStyle(
-      color: myColor,
-      fontSize: myFontSize,
-      fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../main_pages/home_page.dart';
 import '../static_datas/products.dart';
+import 'package:store/functions/textStyle.dart';
 import '../sub_pages/ProductInfo_page.dart';
 
 Widget productCard(context, int whichProduct, int casePro) {
@@ -10,8 +11,7 @@ Widget productCard(context, int whichProduct, int casePro) {
     height: thisSize.height * 0.3,
     width: thisSize.width * 0.4,
     margin: EdgeInsets.only(
-        left: (thisSize.width * 0.1) / 2,
-        right: (thisSize.width * 0.1) / 2),
+        left: (thisSize.width * 0.1) / 2, right: (thisSize.width * 0.1) / 2),
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20), color: Colors.blueGrey),
     child: InkWell(
@@ -21,7 +21,8 @@ Widget productCard(context, int whichProduct, int casePro) {
         Navigator.push(
             context,
             CupertinoDialogRoute(
-                builder: (context) => const ProductInfo_page(), context: context));
+                builder: (context) => const ProductInfo_page(),
+                context: context));
       },
       child: Column(
         children: [
@@ -40,18 +41,18 @@ Widget productCard(context, int whichProduct, int casePro) {
             ),
           ),
           const Spacer(),
-          Text((casePro == 0) ? ProductsList[whichProduct].proName : (casePro == 1) ? ProductsList[whichProduct].proPrice : (casePro == 2)? ProductsList[whichProduct].proPost :ProductsList[whichProduct].proBought,
-              style: ts(Colors.white, 20, true)),
+          Text(
+              (casePro == 0)
+                  ? ProductsList[whichProduct].proName
+                  : (casePro == 1)
+                      ? ProductsList[whichProduct].proPrice
+                      : (casePro == 2)
+                          ? ProductsList[whichProduct].proPost
+                          : ProductsList[whichProduct].proBought,
+              style: myTextStyle.ts(Colors.white, 20, true)),
           const Spacer(),
         ],
       ),
     ),
   );
-}
-
-TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
-  return TextStyle(
-      color: myColor,
-      fontSize: myFontSize,
-      fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
 }
