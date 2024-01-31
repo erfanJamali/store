@@ -7,7 +7,6 @@ import 'package:store/main_pages/home_page.dart';
 import 'package:store/static_datas/static_values.dart';
 import 'package:store/static_datas/Products.dart';
 
-
 class search_page extends StatefulWidget {
   const search_page({super.key});
 
@@ -26,6 +25,11 @@ class _search_pageState extends State<search_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: InkWell(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back_ios_new_rounded)),
         shadowColor: Colors.black87,
         elevation: 10,
         title: Text(
@@ -152,9 +156,9 @@ class _search_pageState extends State<search_page> {
               )
             } else
               ...{
-              Column(
-                children: searchResults(context),
-              )
+                Column(
+                  children: searchResults(context),
+                )
               }
           ],
         ),
@@ -170,28 +174,21 @@ TextStyle ts(Color myColor, double myFontSize, bool boldFont) {
       fontWeight: (boldFont) ? FontWeight.bold : FontWeight.normal);
 }
 
-
 List<Widget> searchResults(context) {
   //
   String input = controller.text.toLowerCase();
   //
   List<Widget> foundList = [];
   //
-  for(int i  = 0; i < input.length; i++){
-
-    for(int j = 0; j < ProductsList.length; j++){
-
-      if(input[i].contains(ProductsList[j].proName[j].toLowerCase())){
-
+  for (int i = 0; i < input.length; i++) {
+    for (int j = 0; j < ProductsList.length; j++) {
+      if (input[i].contains(ProductsList[j].proName[j].toLowerCase())) {
         foundList.add(productCard(context, j, 0));
         print("yea");
-
       }
-
     }
-
   }
-print(input);
+  print(input);
 
   //
   return foundList;

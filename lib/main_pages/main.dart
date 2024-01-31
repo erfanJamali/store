@@ -7,8 +7,10 @@ import "package:google_nav_bar/google_nav_bar.dart";
 import 'package:store/static_datas/Products.dart';
 import 'package:store/main_pages/explore_page.dart';
 import 'package:store/main_pages/profile_page.dart';
+import 'package:store/static_datas/accounts_list.dart';
 import 'package:store/sub_pages/search_page.dart';
 
+import '../sub_pages/sign_log_in_page.dart';
 import 'home_page.dart';
 
 void main() {
@@ -75,7 +77,12 @@ class _main_pageState extends State<main_page> {
                 onTabChange: (index) {
                   setState(() {
                     currentPageIndex = index;
-                    print(currentPageIndex);
+                    if(!isSigned && index == 2){
+                      Navigator.push(
+                          context,
+                          CupertinoDialogRoute(
+                              context: context, builder: (context) => sign_log_in_page()));
+                    }
                   });
                 },
                 selectedIndex: 0,

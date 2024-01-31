@@ -16,6 +16,11 @@ class ProductInfo_page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          leading: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(Icons.arrow_back_ios_new_rounded)),
           shadowColor: Colors.black87,
           elevation: 10,
           title: Text(ProductsList[proInfoIndex].proName,

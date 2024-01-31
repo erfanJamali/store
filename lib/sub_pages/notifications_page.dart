@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:store/static_datas/static_values.dart';
 import 'package:store/static_datas/notifications_List.dart';
+import 'package:store/sub_pages/sign_log_in_page.dart';
 import 'package:store/widgets/notif_card.dart';
 
 import '../main_pages/profile_page.dart';
@@ -20,6 +21,11 @@ class _notifications_pageState extends State<notifications_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.arrow_back_ios_new_rounded)),
         shadowColor: Colors.black87,
         elevation: 10,
         title: Text(
@@ -100,7 +106,7 @@ class _notifications_pageState extends State<notifications_page> {
                         Navigator.push(
                             context,
                             CupertinoDialogRoute(
-                                builder: (context) => const profile_page(),
+                                builder: (context) => const sign_log_in_page(),
                                 context: context));
                         break;
                       case 1:
