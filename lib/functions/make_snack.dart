@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:store/sub_pages/sign_log_in_page.dart';
+import 'package:store/sub_pages/signin_page.dart';
 
 void makeSnackBar(context, String snackText, String actionName) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(

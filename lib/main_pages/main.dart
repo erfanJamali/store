@@ -8,7 +8,7 @@ import 'package:store/main_pages/explore_page.dart';
 import 'package:store/main_pages/profile_page.dart';
 import 'package:store/static_datas/accounts_list.dart';
 
-import '../sub_pages/sign_log_in_page.dart';
+import '../sub_pages/signin_page.dart';
 import 'home_page.dart';
 
 void main() {
