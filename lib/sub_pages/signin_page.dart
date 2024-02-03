@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:store/static_datas/static_values.dart';
-import 'package:store/sub_pages/search_page.dart';
+import 'package:store/static_data/static_values.dart';
 import 'package:store/functions/textStyle.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 
 import '../main_pages/main.dart';
-import '../functions/textStyle.dart';
 
 class sign_log_in_page extends StatefulWidget {
   const sign_log_in_page({super.key});
@@ -34,7 +31,7 @@ class _sign_log_in_pageState extends State<sign_log_in_page> {
             Navigator.push(
                 context,
                 CupertinoDialogRoute(
-                    builder: (context) => main_page(), context: context));
+                    builder: (context) => const main_page(), context: context));
             currentPageIndex = 0;
           },
           child: const Icon(Icons.arrow_back_ios_new_rounded),
@@ -84,15 +81,15 @@ class _sign_log_in_pageState extends State<sign_log_in_page> {
                   logInPage();
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))
-                ),
+                    backgroundColor: MaterialStateProperty.all(Colors.black),
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)))),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Text(
                     pageName,
-                    style:
-                        const TextStyle(color: CupertinoColors.white, fontSize: 20),
+                    style: const TextStyle(
+                        color: CupertinoColors.white, fontSize: 20),
                   ),
                 ),
               ),

@@ -2,10 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:store/static_datas/static_values.dart';
-import 'package:store/static_datas/notifications_List.dart';
+import 'package:store/main_pages/home_page.dart';
+import 'package:store/static_data/static_values.dart';
+import 'package:store/static_data/notifications_List.dart';
 import 'package:store/functions/textStyle.dart';
 import 'package:store/sub_pages/signin_page.dart';
+
 
 class notifications_page extends StatefulWidget {
   const notifications_page({super.key});

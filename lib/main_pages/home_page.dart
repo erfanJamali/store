@@ -1,12 +1,9 @@
-import 'dart:html';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:store/functions/submit_notification.dart';
 import 'package:store/sub_pages/notifications_page.dart';
 import 'package:store/sub_pages/search_page.dart';
 import '../widgets/productCard.dart';
-import '../static_datas/Products.dart';
+import '../static_data/Products.dart';
 import '../sub_pages/ProductInfo_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:store/functions/textStyle.dart';
@@ -52,7 +49,7 @@ class _home_pageState extends State<home_page> {
                                   Text("Hi, erfan",
                                       style: myTextStyle.ts(
                                               Colors.black, 12, false) ??
-                                          TextStyle()),
+                                          const TextStyle()),
                                   const SizedBox(width: 5),
                                   const Icon(
                                     Icons.waving_hand_rounded,
@@ -98,7 +95,7 @@ class _home_pageState extends State<home_page> {
                         child: TextField(
                           enabled: false,
                           decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.search_rounded),
+                            prefixIcon: const Icon(Icons.search_rounded),
                             hintText: "search",
                             hintStyle:
                                 myTextStyle.ts(Colors.black54, 21, false),
@@ -209,14 +206,12 @@ List<Widget> makeSlideShow(context, int num) {
         child: InkWell(
           borderRadius: BorderRadius.circular(30),
           onTap: () {
-            submitNotif("notif", true, 0);
-            submitNotif("notif54", true, 0);
-            submitNotif("notif", true, 0);
             proInfoIndex = i;
             Navigator.push(
               context,
               CupertinoDialogRoute(
-                  builder: (context) => ProductInfo_page(), context: context),
+                  builder: (context) => const ProductInfo_page(),
+                  context: context),
             );
           },
         ),

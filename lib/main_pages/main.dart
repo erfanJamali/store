@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import "package:google_nav_bar/google_nav_bar.dart";
 import 'package:store/main_pages/explore_page.dart';
 import 'package:store/main_pages/profile_page.dart';
-import 'package:store/static_datas/accounts_list.dart';
+import 'package:store/static_data/accounts_list.dart';
 
 import '../sub_pages/signin_page.dart';
 import 'home_page.dart';

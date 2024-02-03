@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:store/widgets/productCard.dart';
 import 'package:store/main_pages/home_page.dart';
-import 'package:store/static_datas/static_values.dart';
-import 'package:store/static_datas/Products.dart';
+import 'package:store/static_data/static_values.dart';
+import 'package:store/static_data/Products.dart';
 import 'package:store/functions/textStyle.dart';
 
 class search_page extends StatefulWidget {
@@ -53,8 +53,10 @@ class _search_pageState extends State<search_page> {
                     hintText: "search between items",
                     focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: baseOrange))),
-                onChanged: (a) {
-                  setState(() {});
+                onChanged: (newVal) {
+                  setState(() {
+                    searchItems(newVal);
+                  });
                 },
               ),
             ),
@@ -159,7 +161,7 @@ class _search_pageState extends State<search_page> {
               )
             } else ...{
               Column(
-                children: searchResults(context),
+                children: makeResult(),
               )
             }
           ],
@@ -167,24 +169,43 @@ class _search_pageState extends State<search_page> {
       ),
     );
   }
-}
 
-List<Widget> searchResults(context) {
-  //
-  String input = controller.text.toLowerCase();
-  //
-  List<Widget> foundList = [];
-  //
-  for (int i = 0; i < input.length; i++) {
-    for (int j = 0; j < ProductsList.length; j++) {
-      if (input[i].contains(ProductsList[j].proName[j].toLowerCase())) {
-        foundList.add(productCard(context, j, 0));
-        print("yea");
-      }
-    }
+  List<Product> resultList = [];
+
+  void searchItems(String query) {
+    resultList = ProductsList.where((element) =>
+        element.proName.toLowerCase().contains(query.toLowerCase())).toList();
   }
-  print(input);
 
-  //
-  return foundList;
+  List<Widget> makeResult() {
+    //
+    List<Widget> tempList = [];
+    //
+    for (int i = 0; i < resultList.length; i++) {
+      tempList.add(searchProductCard(context, i, 0));
+    }
+    //
+    return tempList;
+    //
+  }
 }
+
+// List<Widget> searchResults(context) {
+//   //
+//   String input = controller.text.toLowerCase();
+//   //
+//   List<Widget> foundList = [];
+//   //
+//   for (int i = 0; i < input.length; i++) {
+//     for (int j = 0; j < ProductsList.length; j++) {
+//       if (input[i].contains(ProductsList[j].proName[j].toLowerCase())) {
+//         foundList.add(productCard(context, j, 0));
+//         print("yea");
+//       }
+//     }
+//   }
+//   print(input);
+//
+//   //
+//   return foundList;
+// }

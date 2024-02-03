@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:store/functions/make_snack.dart';
 import 'package:store/functions/submit_notification.dart';
-import 'package:store/static_datas/accounts_list.dart';
+import 'package:store/static_data/accounts_list.dart';
 import 'package:store/functions/textStyle.dart';
 
 import '../main_pages/home_page.dart';
-import '../static_datas/Products.dart';
-import '../static_datas/static_values.dart';
+import '../static_data/Products.dart';
+import '../static_data/static_values.dart';
 
 class ProductInfo_page extends StatelessWidget {
   const ProductInfo_page({super.key});
@@ -84,7 +84,7 @@ class ProductInfo_page extends StatelessWidget {
                   onPressed: () {
                     if (!isSigned) {
                       String message = "you have to SignUp First";
-                      submitNotif(message, false, 1);
+                      submitNotif(message, true, 0);
                       makeSnackBar(context, message, "SignUp");
                     }
                   },

@@ -3,8 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:store/main_pages/home_page.dart';
 import 'package:store/sub_pages/ProductInfo_page.dart';
-import 'package:store/static_datas/products.dart';
-import 'package:store/widgets/productCard.dart';
+import 'package:store/static_data/products.dart';
 
 class explore_page extends StatefulWidget {
   const explore_page({super.key});
@@ -20,12 +19,15 @@ class _explore_pageState extends State<explore_page> {
       appBar: AppBar(
         title: Text("data"),
       ),
-      body: GridView.count(
-        scrollDirection: Axis.vertical,
-        crossAxisCount: 3,
-        mainAxisSpacing: 5,
-        crossAxisSpacing: 5,
-        children: explorePosts(),
+      body: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 5),
+        child: GridView.count(
+          scrollDirection: Axis.vertical,
+          crossAxisCount: 3,
+          mainAxisSpacing: 5,
+          crossAxisSpacing: 5,
+          children: explorePosts(),
+        ),
       ),
     );
   }
@@ -82,18 +84,3 @@ class _explore_pageState extends State<explore_page> {
     return tempList;
   }
 }
-
-// ListView.builder(
-// itemBuilder: (context, index) {
-// Container(
-// padding: const EdgeInsets.symmetric(horizontal: 10),
-// decoration: BoxDecoration(
-// color: Colors.red,
-// borderRadius: BorderRadius.circular(10),
-// ),
-// child: Text(categoryEntity[index]),
-// );
-// return null;
-// },
-// scrollDirection: Axis.horizontal,
-// ),
