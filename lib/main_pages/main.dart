@@ -32,17 +32,16 @@ class _main_pageState extends State<main_page> {
   @override
   Widget build(BuildContext context) {
     //
-    //
     return Scaffold(
       body: Stack(
         alignment: Alignment.bottomCenter,
         children: [
           if (currentPageIndex == 0) ...{
-            const home_page()
+            const home_page(),
           } else if (currentPageIndex == 1) ...{
-            const explore_page()
+            const explore_page(),
           } else ...{
-            const profile_page()
+            const profile_page(),
           },
           const Spacer(),
           Container(
@@ -75,6 +74,7 @@ class _main_pageState extends State<main_page> {
                   setState(() {
                     currentPageIndex = index;
                     if (!isSigned && index == 2) {
+                      currentPageIndex = 0;
                       Navigator.push(
                           context,
                           CupertinoDialogRoute(
